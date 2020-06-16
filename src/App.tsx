@@ -1,15 +1,16 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 import GlobalStyles from "./theme/GlobalStyles";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyles />
-      <Navbar />
-      <Hero />
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
     </div>
   );
 }

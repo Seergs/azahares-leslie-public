@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     body, html {
-        font-family: 'Noto Serif JP', serif;
+        font-family: 'Lora', serif;
         height: 100%;
     }
 
@@ -10,6 +10,17 @@ export default createGlobalStyle`
         margin:0;
         padding:0;
         box-sizing: border-box;
-        font-family: 'Noto Serif JP', serif;
+    }
+    
+    button,textarea{
+        font-family: 'Lora', serif;
+    }
+
+    ul{
+        list-style-type:none;
+    }
+
+    a{
+        text-decoration:none;
     }
 `;

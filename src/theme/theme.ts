@@ -119,6 +119,8 @@ const theme: DefaultTheme = {
     shadowSpread: "0 2px 15px hsla(0,0%,0%,0.09)",
     modalShadow: "0 15px 35px hsla(0,0%,0%,.2)",
   },
+  primaryColor: "#39D1C8",
+  secondaryColor: "#444444",
 };
 
 export default theme;

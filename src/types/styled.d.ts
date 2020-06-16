@@ -123,5 +123,7 @@ declare module "styled-components" {
       shadowSpread: string;
       modalShadow: string;
     };
+    primaryColor: string;
+    secondaryColor: string;
   }
 }
