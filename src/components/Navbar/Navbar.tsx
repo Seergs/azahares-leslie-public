@@ -8,6 +8,7 @@ const StyledNavbar = styled.nav`
     height: 50px;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
     .brand {
       width: 40%;
       font-family: "Pinyon Script", cursive;
@@ -56,12 +57,17 @@ const StyledNavbar = styled.nav`
   `}
 `;
 
-export default function Navbar() {
+type NavbarProps = {
+  search?: boolean;
+};
+
+export default function Navbar({ search = false }: NavbarProps) {
   return (
     <StyledNavbar>
       <div className="brand">
         <Link to="/">Azahares Leslie</Link>
       </div>
+      {search && <input />}
     </StyledNavbar>
   );
 }

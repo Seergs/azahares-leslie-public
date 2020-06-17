@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Variant, Variants } from "framer-motion";
+import {  Variants } from "framer-motion";
 
 export const StyledLanding = styled.section`
   ${(props) => css`
