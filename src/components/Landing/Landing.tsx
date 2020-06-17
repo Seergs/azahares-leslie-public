@@ -1,131 +1,56 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
 
 import Navbar from "../Navbar/Navbar";
 
+import {
+  StyledLanding,
+  titleVariants,
+  paragraphVariants,
+  containerVariants,
+  buttonVariants,
+  imageVariants,
+} from "./Styles";
+
 import image from "../../assets/images/hero.png";
-import { Link } from "react-router-dom";
-
-const StyledLanding = styled.section`
-  ${(props) => css`
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    main {
-      padding: 2em 3em 2em 4em;
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-
-      h1 {
-        font-size: 3rem;
-        max-width: 500px;
-        line-height: 72px;
-        color: ${props.theme.secondaryColor};
-      }
-
-      p {
-        margin-top: 0.8em;
-        font-size: 1.3rem;
-        color: ${props.theme.secondaryColor};
-      }
-
-      .primary {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        margin-top: 4em;
-        border-bottom: 5px solid ${props.theme.primaryColor};
-        color: ${props.theme.secondaryColor};
-        font-weight: bold;
-
-        svg {
-          color: ${props.theme.primaryColor};
-          margin-left: 8px;
-          transition: transform 0.1s linear;
-        }
-
-        &:hover {
-          border-bottom: none;
-          svg {
-            transform: translateX(3px) scale(1.1);
-          }
-        }
-      }
-
-      .container {
-        margin-top: 5em;
-        height: 500px;
-      }
-    }
-
-    img {
-      margin-left: auto;
-      justify-self: flex-end;
-      max-height: 100vh;
-      max-width: 900px;
-      width: auto;
-      height: auto;
-      transition: filter 0.5s, transform 0.1s;
-    }
-
-    @media screen and (max-width: 1340px) {
-      position: relative;
-
-      main {
-        position: absolute;
-        width: 100vw;
-        z-index: 1;
-      }
-    }
-
-    @media screen and (max-width: 1284px) {
-      img {
-        transform: translateY(calc(50px + 2em));
-      }
-    }
-
-    @media screen and (max-width: 1100px) {
-      img {
-        filter: opacity(0.5);
-      }
-      main {
-        h1,
-        p {
-          color: black;
-        }
-      }
-    }
-
-    @media screen and (max-width: 900px) {
-      main {
-        padding: 1em;
-      }
-    }
-
-    @media screen and (max-width: 700px) {
-      position: fixed;
-    }
-  `}
-`;
 
 export default function Landing() {
   return (
     <StyledLanding>
       <main>
         <Navbar />
-        <div className="container">
-          <h1>ARTÍCULOS RELIGIOSOS PARA TODA OCASIÓN</h1>
-          <p>Hechos con la mejor calidad y al mejor precio</p>
-          <Link to="/products" className="primary">
-            Ver productos
-            <FaArrowRight />
-          </Link>
-        </div>
+        <motion.div
+          className="container"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1 variants={titleVariants}>
+            ARTÍCULOS RELIGIOSOS PARA TODA OCASIÓN
+          </motion.h1>
+          <motion.p variants={paragraphVariants}>
+            Hechos con la mejor calidad y al mejor precio
+          </motion.p>
+          <motion.div variants={buttonVariants}>
+            <Link to="/products" className="primary">
+              Ver productos
+              <FaArrowRight />
+            </Link>
+          </motion.div>
+        </motion.div>
       </main>
-      <img src={image} alt="bride" className="landing-image" />
+      <motion.img
+        src={image}
+        alt="bride"
+        className="landing-image"
+        variants={imageVariants}
+        initial="hidden"
+        animate="visible"
+      />
     </StyledLanding>
   );
 }
