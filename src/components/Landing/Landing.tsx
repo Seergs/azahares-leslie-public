@@ -5,13 +5,14 @@ import { FaArrowRight } from "react-icons/fa";
 
 import Navbar from "../Navbar/Navbar";
 
-import image from "../../assets/images/hero.jpg";
+import image from "../../assets/images/hero.png";
 import { Link } from "react-router-dom";
 
 const StyledLanding = styled.section`
   ${(props) => css`
     display: flex;
     height: 100vh;
+    width: 100vw;
     main {
       padding: 2em 3em 2em 4em;
       width: 65%;
@@ -43,6 +44,14 @@ const StyledLanding = styled.section`
         svg {
           color: ${props.theme.primaryColor};
           margin-left: 8px;
+          transition: transform 0.1s linear;
+        }
+
+        &:hover {
+          border-bottom: none;
+          svg {
+            transform: translateX(3px) scale(1.1);
+          }
         }
       }
 
@@ -53,7 +62,51 @@ const StyledLanding = styled.section`
     }
 
     img {
-      width: 35%;
+      margin-left: auto;
+      justify-self: flex-end;
+      max-height: 100vh;
+      max-width: 900px;
+      width: auto;
+      height: auto;
+      transition: filter 0.5s, transform 0.1s;
+    }
+
+    @media screen and (max-width: 1340px) {
+      position: relative;
+
+      main {
+        position: absolute;
+        width: 100vw;
+        z-index: 1;
+      }
+    }
+
+    @media screen and (max-width: 1284px) {
+      img {
+        transform: translateY(calc(50px + 2em));
+      }
+    }
+
+    @media screen and (max-width: 1100px) {
+      img {
+        filter: opacity(0.5);
+      }
+      main {
+        h1,
+        p {
+          color: black;
+        }
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      main {
+        padding: 1em;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      position: fixed;
     }
   `}
 `;
@@ -72,7 +125,7 @@ export default function Landing() {
           </Link>
         </div>
       </main>
-      <img src={image} alt="bride" />
+      <img src={image} alt="bride" className="landing-image" />
     </StyledLanding>
   );
 }

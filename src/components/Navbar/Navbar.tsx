@@ -12,10 +12,12 @@ const StyledNavbar = styled.nav`
       width: 40%;
       font-family: "Pinyon Script", cursive;
       font-size: 2rem;
-      color: ${props.theme.colors.grays.gray900};
 
-      &:hover {
-        color: ${props.theme.primaryColor};
+      a {
+        color: ${props.theme.secondaryColor};
+        &:hover {
+          color: ${props.theme.primaryColor};
+        }
       }
     }
     ul {
@@ -26,11 +28,30 @@ const StyledNavbar = styled.nav`
       li {
         font-size: 1.1rem;
         margin: 0 1em;
+        transition: transform 50ms ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
 
         a {
           color: ${props.theme.colors.grays.gray900};
         }
       }
+    }
+
+    @media screen and (max-width: 1340px) {
+      .brand {
+        margin-right: 1em;
+        width: fit-content;
+      }
+      ul {
+        width: fit-content;
+      }
+    }
+
+    @media screen and (max-width: 1284px) {
+      width: auto;
     }
   `}
 `;
@@ -38,17 +59,9 @@ const StyledNavbar = styled.nav`
 export default function Navbar() {
   return (
     <StyledNavbar>
-      <Link to="/" className="brand">
-        Azahares Leslie
-      </Link>
-      <ul>
-        <li>
-          <Link to="/products">productos</Link>
-        </li>
-        <li>
-          <Link to="/contact">contacto</Link>
-        </li>
-      </ul>
+      <div className="brand">
+        <Link to="/">Azahares Leslie</Link>
+      </div>
     </StyledNavbar>
   );
 }
