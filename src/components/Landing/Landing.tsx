@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
-import styled, { css } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
 
 import Navbar from "../Navbar/Navbar";

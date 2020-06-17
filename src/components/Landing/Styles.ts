@@ -115,10 +115,12 @@ export const StyledLanding = styled.section`
     }
 
     @media screen and (max-width: 700px) {
-      position: fixed;
       main {
         h1 {
           font-size: 2rem;
+        }
+        .primary {
+          margin: 4em auto 0 auto;
         }
       }
     }
