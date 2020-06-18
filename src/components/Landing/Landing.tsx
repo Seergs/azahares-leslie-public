@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -35,10 +34,10 @@ export default function Landing() {
             Hechos con la mejor calidad y al mejor precio
           </motion.p>
           <motion.div variants={buttonVariants}>
-            <Link to="/products" className="primary">
+            <a href="#products" className="primary">
               Ver productos
               <FaArrowRight />
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </main>

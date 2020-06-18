@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     body, html {
-        font-family: 'Lora', serif;
+        font-family: 'Lato', sans-serif;
         height: 100%;
         width:100%;
         margin:0;
@@ -14,10 +14,12 @@ export default createGlobalStyle`
         margin:0;
         padding:0;
         box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
     
     button,textarea{
-        font-family: 'Lora', serif;
+        font-family: 'Lato', sans-serif;
     }
 
     ul{

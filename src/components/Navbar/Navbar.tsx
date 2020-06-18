@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import styled, { css } from "styled-components";
 
@@ -65,7 +64,7 @@ export default function Navbar({ search = false }: NavbarProps) {
   return (
     <StyledNavbar>
       <div className="brand">
-        <Link to="/">Azahares Leslie</Link>
+        <a href="/">Azahares Leslie</a>
       </div>
       {search && <input />}
     </StyledNavbar>
