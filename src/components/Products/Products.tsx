@@ -8,7 +8,7 @@ import Searchbar from "../Searchbar/Searchbar";
 
 const StyledProducts = styled.section`
   ${(props) => css`
-    margin: 10em 0;
+    margin-top: 10em;
     h2 {
       text-align: center;
       color: ${props.theme.colors.grays.gray800};
