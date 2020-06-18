@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 
 import styled, { css } from "styled-components";
 
+import { Product } from "./index";
 import ProductCard from "../ProductCard/ProductCard";
-
-axios.defaults.baseURL = "https://azahares-leslie-server.herokuapp.com/api/v1";
+import Searchbar from "../Searchbar/Searchbar";
 
 const StyledProducts = styled.section`
   ${(props) => css`
@@ -25,21 +24,15 @@ const StyledProducts = styled.section`
   `}
 `;
 
-export default function Products() {
-  const [products, setProducts] = useState<Product[]>([]);
+type ProductsProps = {
+  products: Product[];
+};
 
-  useEffect(() => {
-    async function fetchProducts() {
-      const response = await axios.get("/products/public");
-      setProducts(response.data);
-    }
-
-    fetchProducts();
-  }, []);
-
+export default function Products({ products }: ProductsProps) {
   return (
     <StyledProducts id="products">
       <h2>LO QUE OFRECEMOS</h2>
+      <Searchbar />
       <div className="products-container">
         {products &&
           products.map((product, i) => (
@@ -48,15 +41,4 @@ export default function Products() {
       </div>
     </StyledProducts>
   );
-}
-
-export interface Product {
-  _id: string;
-  name: string;
-  description: string;
-  tag: string;
-  imageUrl: string;
-  enabled: boolean;
-  createdAt: Date;
-  price: number;
 }

@@ -1,9 +1,8 @@
 import React from "react";
 
 import styled, { css } from "styled-components";
-import { motion } from "framer-motion";
 
-import { Product } from "../Products/Products";
+import { Product } from "../Products";
 
 const StyledCard = styled.div`
   ${(props) => css`

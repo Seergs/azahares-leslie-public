@@ -17,6 +17,10 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    *:focus {
+        outline: none;
+    }
     
     button,textarea{
         font-family: 'Lato', sans-serif;
