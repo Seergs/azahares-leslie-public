@@ -20,6 +20,10 @@ const StyledProducts = styled.section`
       grid-template-columns: repeat(auto-fill, 250px);
       gap: 2em;
       justify-content: center;
+
+      @media screen and (max-width: 400px) {
+        grid-template-columns: repeat(auto-fill, 300px);
+      }
     }
   `}
 `;

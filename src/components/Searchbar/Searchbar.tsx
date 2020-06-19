@@ -8,9 +8,9 @@ const StyledSearchbar = styled.div`
   ${(props) => css`
     margin-left: 4em;
     margin-top: 5em;
-    max-width: 500px;
+    width: 40%;
     display: flex;
-    height: 40px;
+    height: 45px;
     align-items: center;
 
     background-color: ${props.theme.colors.grays.gray100};
@@ -36,6 +36,19 @@ const StyledSearchbar = styled.div`
 
     &:focus-within {
       border: 1px solid ${props.theme.colors.teals.teal500};
+    }
+
+    @media screen and (max-width: 950px) {
+      width: 60%;
+    }
+
+    @media screen and (max-width: 620px) {
+      width: 80%;
+      margin: 5em auto 0 auto;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 90%;
     }
   `}
 `;

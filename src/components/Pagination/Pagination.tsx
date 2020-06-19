@@ -1,22 +1,30 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+
 const StyledPagination = styled.div`
   ${(props) => css`
     display: flex;
-    justify-content: flex-end;
-    margin-right: 4.5em;
+    justify-content: center;
     margin-top: 3em;
 
     button {
-      display: inline-block;
+      display: flex;
       width: 120px;
-      height: 40px;
+      height: 45px;
       border-radius: 5px;
       font-weight: bold;
       border: none;
       font-size: 1rem;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        height: 15px;
+        width: 15px;
+      }
     }
 
     .previous {
@@ -24,6 +32,10 @@ const StyledPagination = styled.div`
       background-color: white;
       box-shadow: ${props.theme.shadows.shadow2};
       color: ${props.theme.colors.teals.teal600};
+
+      svg {
+        margin-right: 5px;
+      }
 
       &:hover {
         background-color: ${props.theme.colors.grays.gray100};
@@ -37,6 +49,10 @@ const StyledPagination = styled.div`
     .next {
       background-color: ${props.theme.colors.teals.teal500};
       color: white;
+
+      svg {
+        margin-left: 5px;
+      }
 
       &:hover {
         background-color: ${props.theme.colors.teals.teal400};
@@ -66,12 +82,14 @@ export default function Pagination({
     <StyledPagination>
       {previousPageExists && (
         <button className="previous" onClick={previousPage}>
+          <FaChevronLeft />
           Anterior
         </button>
       )}
       {nextPageExists && (
         <button className="next" onClick={nextPage}>
           Siguiente
+          <FaChevronRight />
         </button>
       )}
     </StyledPagination>

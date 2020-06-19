@@ -60,6 +60,10 @@ const StyledCard = styled.div`
       transform: scale(1.05);
       box-shadow: ${props.theme.shadows.shadowSpread};
     }
+
+    @media screen and (max-width: 400px) {
+      width: 300px;
+    }
   `}
 `;
 
