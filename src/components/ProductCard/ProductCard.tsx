@@ -1,20 +1,21 @@
 import React from "react";
 
 import styled, { css } from "styled-components";
+import { FaShoppingCart } from "react-icons/fa";
 
 import { Product } from "../Products";
 
 const StyledCard = styled.div`
   ${(props) => css`
     width: 250px;
-    height: 320px;
+    height: 370px;
     background-color: white;
     box-shadow: ${props.theme.shadows.shadow2};
     transition: transform 0.1s linear;
     cursor: pointer;
 
     .image-container {
-      height: 200px;
+      height: 220px;
       img {
         height: 100%;
         width: 100%;
@@ -23,6 +24,7 @@ const StyledCard = styled.div`
     }
     main {
       padding: 1em;
+      height: 110px;
 
       h3 {
         color: ${props.theme.colors.grays.gray800};
@@ -61,6 +63,28 @@ const StyledCard = styled.div`
       box-shadow: ${props.theme.shadows.shadowSpread};
     }
 
+    button {
+      display: block;
+      width: 100%;
+      height: 40px;
+      background-color: ${props.theme.primaryColor};
+      border: none;
+      color: ${props.theme.secondaryColor};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      svg {
+        fill: ${props.theme.colors.teals.teal800};
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background-color: ${props.theme.colors.teals.teal300};
+      }
+    }
+
     @media screen and (max-width: 400px) {
       width: 300px;
     }
@@ -83,17 +107,23 @@ export default function ProductCard({
     setSelectedProduct(product);
   }
   return (
-    <StyledCard onClick={handleClick}>
-      <div className="image-container">
-        <img src={product.imageUrl} alt={product.name} />
+    <StyledCard>
+      <div className="info" onClick={handleClick}>
+        <div className="image-container">
+          <img src={product.imageUrl} alt={product.name} />
+        </div>
+        <main>
+          <h3>{product.name}</h3>
+          <p>
+            ${product.price} <span>MX</span>
+          </p>
+          <span>#{product.tag}</span>
+        </main>
       </div>
-      <main>
-        <h3>{product.name}</h3>
-        <p>
-          ${product.price} <span>MX</span>
-        </p>
-        <span>#{product.tag}</span>
-      </main>
+      <button>
+        <FaShoppingCart />
+        Comprar
+      </button>
     </StyledCard>
   );
 }
