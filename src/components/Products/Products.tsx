@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styled, { css } from "styled-components";
 
 import { Product } from "./index";
 import ProductCard from "../ProductCard/ProductCard";
 import Searchbar from "../Searchbar/Searchbar";
+import Modal from "../Modal/Modal";
+import ProductDetails from "../ProductDetails/ProductDetails";
 
 const StyledProducts = styled.section`
   ${(props) => css`
@@ -34,16 +36,34 @@ type ProductsProps = {
 };
 
 export default function Products({ products, updateQuery }: ProductsProps) {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  function toggleModal() {
+    setModalOpen(!isModalOpen);
+  }
   return (
-    <StyledProducts id="products">
-      <h2>LO QUE OFRECEMOS</h2>
-      <Searchbar updateQuery={updateQuery} />
-      <div className="products-container">
-        {products &&
-          products.map((product, i) => (
-            <ProductCard product={product} key={i} />
-          ))}
-      </div>
-    </StyledProducts>
+    <>
+      <StyledProducts id="products">
+        <h2>LO QUE OFRECEMOS</h2>
+        <Searchbar updateQuery={updateQuery} />
+        <div className="products-container">
+          {products &&
+            products.map((product, i) => (
+              <ProductCard
+                key={i}
+                product={product}
+                toggleModal={toggleModal}
+                setSelectedProduct={setSelectedProduct}
+              />
+            ))}
+        </div>
+      </StyledProducts>
+      <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+        {selectedProduct && (
+          <ProductDetails product={selectedProduct} toggleModal={toggleModal} />
+        )}
+      </Modal>
+    </>
   );
 }

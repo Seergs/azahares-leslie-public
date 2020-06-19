@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Products from "./Products";
 import Pagination from "../Pagination/Pagination";
+import Modal from "../Modal/Modal";
 
 axios.defaults.baseURL = "http://localhost:5000/api/v1";
 //axios.defaults.baseURL = "https://azahares-leslie-server.herokuapp.com/api/v1";

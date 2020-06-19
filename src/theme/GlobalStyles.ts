@@ -33,4 +33,8 @@ export default createGlobalStyle`
     a{
         text-decoration:none;
     }
+
+    .ReactModal__Overlay {
+        background-color: transparent !important;
+    }
 `;

@@ -69,11 +69,21 @@ const StyledCard = styled.div`
 
 type ProductCardProps = {
   product: Product;
+  toggleModal: () => void;
+  setSelectedProduct: (product: Product) => void;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  toggleModal,
+  setSelectedProduct,
+}: ProductCardProps) {
+  function handleClick() {
+    toggleModal();
+    setSelectedProduct(product);
+  }
   return (
-    <StyledCard>
+    <StyledCard onClick={handleClick}>
       <div className="image-container">
         <img src={product.imageUrl} alt={product.name} />
       </div>
