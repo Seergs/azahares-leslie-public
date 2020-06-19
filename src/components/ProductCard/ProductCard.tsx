@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styled, { css } from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
 
 import { Product } from "../Products";
+import axios from "axios";
+import Modal from "../Modal/Modal";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { useStripe } from "@stripe/react-stripe-js";
 
 const StyledCard = styled.div`
   ${(props) => css`
@@ -102,28 +106,61 @@ export default function ProductCard({
   toggleModal,
   setSelectedProduct,
 }: ProductCardProps) {
+  const [isPaymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [clientStripeSecret, setClientStripeSecret] = useState<string | null>(
+    null
+  );
+
+  const togglePaymentModal = () => {
+    setPaymentModalOpen(!isPaymentModalOpen);
+  };
+
   function handleClick() {
     toggleModal();
     setSelectedProduct(product);
   }
+
+  async function createPayment() {
+    togglePaymentModal();
+    try {
+      const response = await axios.get("/payments/secretpayment");
+      setClientStripeSecret(response.data.client_secret);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
-    <StyledCard>
-      <div className="info" onClick={handleClick}>
-        <div className="image-container">
-          <img src={product.imageUrl} alt={product.name} />
+    <>
+      <StyledCard>
+        <div className="info" onClick={handleClick}>
+          <div className="image-container">
+            <img src={product.imageUrl} alt={product.name} />
+          </div>
+          <main>
+            <h3>{product.name}</h3>
+            <p>
+              ${product.price} <span>MX</span>
+            </p>
+            <span>#{product.tag}</span>
+          </main>
         </div>
-        <main>
-          <h3>{product.name}</h3>
-          <p>
-            ${product.price} <span>MX</span>
-          </p>
-          <span>#{product.tag}</span>
-        </main>
-      </div>
-      <button>
-        <FaShoppingCart />
-        Comprar
-      </button>
-    </StyledCard>
+        <button onClick={createPayment}>
+          <FaShoppingCart />
+          Comprar
+        </button>
+      </StyledCard>
+      <Modal
+        isOpen={isPaymentModalOpen}
+        toggleModal={togglePaymentModal}
+        height="430px"
+        width="600px"
+      >
+        <CheckoutForm
+          clientStripeSecret={clientStripeSecret}
+          togglePaymentModal={togglePaymentModal}
+        />
+      </Modal>
+    </>
   );
 }
