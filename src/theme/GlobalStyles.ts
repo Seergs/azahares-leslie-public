@@ -36,5 +36,18 @@ export default createGlobalStyle`
 
     .ReactModal__Overlay {
         background-color: transparent !important;
+        transition: all .3s ease-out;
+        opacity: 0;
+        transform: translateY(-2%);
+    }
+
+    .ReactModal__Overlay--after-open {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .ReactModal__Overlay--before-close {
+        opacity: 0;
+        transform: translateY(-2%);
     }
 `;

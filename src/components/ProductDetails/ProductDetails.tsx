@@ -58,11 +58,16 @@ const StyledDetails = styled.div`
     }
 
     .image-container {
-      width: 500px;
-      height: 500px;
+      width: 300px;
+      height: 300px;
       margin: 1em auto 0 auto;
       display: flex;
       justify-content: center;
+
+      @media screen and (max-width: 700px) {
+        width: 90%;
+        height: auto;
+      }
 
       img {
         width: 100%;

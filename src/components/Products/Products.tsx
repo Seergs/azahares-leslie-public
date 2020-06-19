@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { Product } from "./index";
 import ProductCard from "../ProductCard/ProductCard";
 import Searchbar from "../Searchbar/Searchbar";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/ProductDetailsModal";
 import ProductDetails from "../ProductDetails/ProductDetails";
 
 const StyledProducts = styled.section`

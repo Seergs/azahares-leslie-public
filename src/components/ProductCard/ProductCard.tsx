@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import { Product } from "../Products";
 import axios from "axios";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/CheckoutModal";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 const StyledCard = styled.div`
@@ -154,12 +154,7 @@ export default function ProductCard({
           Comprar
         </button>
       </StyledCard>
-      <Modal
-        isOpen={isPaymentModalOpen}
-        toggleModal={togglePaymentModal}
-        height="430px"
-        width="600px"
-      >
+      <Modal isOpen={isPaymentModalOpen} toggleModal={togglePaymentModal}>
         <CheckoutForm
           clientStripeSecret={clientStripeSecret}
           togglePaymentModal={togglePaymentModal}

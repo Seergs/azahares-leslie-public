@@ -5,8 +5,8 @@ import axios from "axios";
 import Products from "./Products";
 import Pagination from "../Pagination/Pagination";
 
-axios.defaults.baseURL = "http://localhost:5000/api/v1";
-//axios.defaults.baseURL = "https://azahares-leslie-server.herokuapp.com/api/v1";
+//axios.defaults.baseURL = "http://localhost:5000/api/v1";
+axios.defaults.baseURL = "https://azahares-leslie-server.herokuapp.com/api/v1";
 
 export default function ProductSection() {
   const [page, setPage] = useState(1);

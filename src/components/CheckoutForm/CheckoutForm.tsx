@@ -26,10 +26,14 @@ const StyledForm = styled.div`
       h3 {
         color: ${props.theme.colors.grays.gray900};
         font-weight: normal;
+
+        @media screen and (max-width: 700px) {
+          font-size: 1rem;
+        }
       }
 
       svg {
-        margin-right: 5px;
+        margin-right: 8px;
         fill: ${props.theme.colors.indigos.indigo600};
       }
     }
@@ -38,6 +42,10 @@ const StyledForm = styled.div`
       display: flex;
       justify-content: space-between;
       margin-bottom: 1em;
+
+      @media screen and (max-width: 700px) {
+        flex-direction: column;
+      }
     }
 
     .name,
@@ -45,6 +53,10 @@ const StyledForm = styled.div`
       display: flex;
       flex-direction: column;
       width: 45%;
+
+      @media screen and (max-width: 700px) {
+        width: 100%;
+      }
     }
     input,
     .StripeElement {
