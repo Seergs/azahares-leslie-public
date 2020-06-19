@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, FormEvent, ChangeEvent } from "react";
 
 import styled, { css } from "styled-components";
 
 import { FaSearch } from "react-icons/fa";
+import { Product } from "../Products";
 
 const StyledSearchbar = styled.div`
   ${(props) => css`
@@ -16,6 +17,11 @@ const StyledSearchbar = styled.div`
     background-color: ${props.theme.colors.grays.gray100};
     border: 1px solid ${props.theme.colors.grays.gray300};
     border-radius: 5px;
+
+    form {
+      width: 100%;
+      height: 100%;
+    }
 
     input {
       width: 100%;
@@ -53,11 +59,28 @@ const StyledSearchbar = styled.div`
   `}
 `;
 
-export default function Searchbar() {
+type SearchbarProps = {
+  updateQuery: (query: string) => void;
+};
+
+export default function Searchbar({ updateQuery }: SearchbarProps) {
+  const [search, setSearch] = useState("");
+
+  function submit(e: FormEvent) {
+    e.preventDefault();
+    updateQuery(search);
+  }
   return (
     <StyledSearchbar>
       <FaSearch />
-      <input type="text" placeholder="Busca un producto" />
+      <form onSubmit={submit}>
+        <input
+          type="text"
+          placeholder="Busca un producto"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </form>
     </StyledSearchbar>
   );
 }

@@ -30,13 +30,14 @@ const StyledProducts = styled.section`
 
 type ProductsProps = {
   products: Product[];
+  updateQuery: (query: string) => void;
 };
 
-export default function Products({ products }: ProductsProps) {
+export default function Products({ products, updateQuery }: ProductsProps) {
   return (
     <StyledProducts id="products">
       <h2>LO QUE OFRECEMOS</h2>
-      <Searchbar />
+      <Searchbar updateQuery={updateQuery} />
       <div className="products-container">
         {products &&
           products.map((product, i) => (
