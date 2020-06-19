@@ -7,7 +7,6 @@ import { Product } from "../Products";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
-import { useStripe } from "@stripe/react-stripe-js";
 
 const StyledCard = styled.div`
   ${(props) => css`
@@ -71,21 +70,26 @@ const StyledCard = styled.div`
       display: block;
       width: 100%;
       height: 40px;
-      background-color: ${props.theme.primaryColor};
+      background-color: ${props.theme.colors.teals.teal700};
       border: none;
-      color: ${props.theme.secondaryColor};
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      font-size: 1rem;
 
       svg {
-        fill: ${props.theme.colors.teals.teal800};
+        fill: ${props.theme.colors.teals.teal400};
         margin-right: 5px;
       }
 
       &:hover {
-        background-color: ${props.theme.colors.teals.teal300};
+        background-color: ${props.theme.colors.teals.teal600};
+      }
+
+      &:active {
+        background-color: ${props.theme.colors.teals.teal800};
       }
     }
 

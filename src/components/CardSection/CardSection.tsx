@@ -22,7 +22,7 @@ const CARD_ELEMENT_OPTIONS = {
 export default function CardSection() {
   return (
     <>
-      <label>Datos de la tarjeta</label>
+      <label>DATOS DE LA TARJETA</label>
       <CardElement options={CARD_ELEMENT_OPTIONS} />
     </>
   );

@@ -4,7 +4,6 @@ import axios from "axios";
 
 import Products from "./Products";
 import Pagination from "../Pagination/Pagination";
-import Modal from "../Modal/Modal";
 
 axios.defaults.baseURL = "http://localhost:5000/api/v1";
 //axios.defaults.baseURL = "https://azahares-leslie-server.herokuapp.com/api/v1";
@@ -15,7 +14,6 @@ export default function ProductSection() {
   const [previousPpageExists, setPreviousPageExists] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [query, setQuery] = useState("");
-  const [searchedProducts, setSearchedProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     async function fetchProducts() {

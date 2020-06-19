@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { FaInfoCircle } from "react-icons/fa";
+import { FaInfoCircle, FaExclamationCircle } from "react-icons/fa";
 
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 
@@ -15,6 +15,7 @@ const StyledForm = styled.div`
     h1 {
       color: ${props.theme.colors.grays.gray800};
       margin-bottom: 0.5em;
+      font-weight: normal;
     }
 
     .info {
@@ -115,6 +116,20 @@ const StyledForm = styled.div`
       color: ${props.theme.colors.reds.red700};
       font-weight: bold;
     }
+
+    p {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: ${props.theme.colors.grays.gray500};
+      font-size: 0.8rem;
+
+      svg {
+        margin-right: 5px;
+        fill: ${props.theme.colors.grays.gray400};
+      }
+    }
   `}
 `;
 
@@ -181,7 +196,7 @@ export default function CheckoutForm({
       <form onSubmit={handleSubmit}>
         <div className="container">
           <div className="name">
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name">NOMBRE</label>
             <input
               type="text"
               placeholder="Jane Doe"
@@ -192,7 +207,7 @@ export default function CheckoutForm({
             />
           </div>
           <div className="email">
-            <label htmlFor="email">Correo</label>
+            <label htmlFor="email">CORREO</label>
             <input
               type="email"
               placeholder="email@example.com"
@@ -206,6 +221,10 @@ export default function CheckoutForm({
         <small>{error.trim().length ? error : null}</small>
         <button disabled={!stripe || loading}>Confirmar</button>
       </form>
+      <p>
+        <FaExclamationCircle />
+        Al hacer click en confirmar estás aceptando el pago a Azahares Leslie
+      </p>
     </StyledForm>
   );
 }

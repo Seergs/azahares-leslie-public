@@ -1,9 +1,8 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import React, { useState, FormEvent } from "react";
 
 import styled, { css } from "styled-components";
 
 import { FaSearch } from "react-icons/fa";
-import { Product } from "../Products";
 
 const StyledSearchbar = styled.div`
   ${(props) => css`
