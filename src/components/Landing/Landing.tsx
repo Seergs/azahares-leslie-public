@@ -14,8 +14,6 @@ import {
   imageVariants,
 } from "./Styles";
 
-import image from "../../assets/images/hero.png";
-
 export default function Landing() {
   return (
     <StyledLanding>
@@ -42,7 +40,7 @@ export default function Landing() {
         </motion.div>
       </main>
       <motion.img
-        src={image}
+        src="https://res.cloudinary.com/du2j41pda/image/upload/f_auto,q_auto/v1592611077/azahares_leslie/hero_rypcap.png"
         alt="bride"
         className="landing-image"
         variants={imageVariants}
