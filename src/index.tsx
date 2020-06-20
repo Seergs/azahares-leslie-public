@@ -9,9 +9,7 @@ import App from "./App";
 
 import theme from "./theme/theme";
 
-const stripePromise = loadStripe(
-  "pk_test_51GunXcDDSmd0ca0UOkUbvoaqaDBTXRTVhArV2k49p7SXp966aXoX7aHbEU4TUp47jnyqtCGW5pMnq17fr98tyOYu00oahR3kIL"
-);
+const stripePromise = loadStripe("pk_live_eiz0QvdgoeQcRzkYZBvpIKWk00RW6xjxb0");
 
 ReactDOM.render(
   <React.StrictMode>
