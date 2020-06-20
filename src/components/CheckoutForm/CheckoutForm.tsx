@@ -184,13 +184,10 @@ export default function CheckoutForm({
     } else {
       if (result.paymentIntent?.status === "succeeded") {
         setError("");
-        toast.notify(
-          "Pago realizado exitosamente, nos pondremos en contacto contigo en breve",
-          {
-            type: "success",
-            position: "top-right",
-          }
-        );
+        toast.notify("Compra exitosa, nos comunicaremos contigo en breve", {
+          type: "success",
+          position: "top-right",
+        });
         togglePaymentModal();
       }
     }

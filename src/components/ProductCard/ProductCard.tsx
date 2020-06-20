@@ -127,7 +127,7 @@ export default function ProductCard({
   async function createPayment() {
     togglePaymentModal();
     try {
-      const response = await axios.get("/payments/secretpayment");
+      const response = await axios.post("/payments", { amount: product.price });
       setClientStripeSecret(response.data.client_secret);
     } catch (e) {
       console.log(e);
