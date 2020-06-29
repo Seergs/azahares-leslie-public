@@ -18,11 +18,10 @@ const StyledCard = styled.div`
     cursor: pointer;
 
     .image-container {
-      height: 220px;
+      height: 250px;
       img {
         height: 100%;
         width: 100%;
-        object-fit: cover;
       }
     }
     main {
