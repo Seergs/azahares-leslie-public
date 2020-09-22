@@ -2,8 +2,9 @@ const theme = {
   colors: {
     black: "hsl(212, 56%, 16%)",
     darkGray: "hsl(212,18%,35%)",
-    primary: "#39D1C8",
-    secondary: "#444444",
+    beige: "#F8F7F4",
+    darkBeige: "#5C574F",
+    underlay: "#746C5E",
   },
   fontSizes: {
     sm: "",
@@ -14,6 +15,7 @@ const theme = {
     header: "32px",
     title: "56px",
     titleMobile: "36px",
+    undelay: "86px",
   },
   shadows: {
     shadow1: "0 1x 3px hsla(0,0%,0%,0.2)",
