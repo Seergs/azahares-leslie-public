@@ -10,8 +10,10 @@ const theme = {
     md: "16px",
     lg: "18px",
     xl: "20px",
+    "2xl": "22px",
     header: "32px",
     title: "56px",
+    titleMobile: "36px",
   },
   shadows: {
     shadow1: "0 1x 3px hsla(0,0%,0%,0.2)",
