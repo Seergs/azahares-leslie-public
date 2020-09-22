@@ -14,10 +14,6 @@ const Container = styled(motion.div)`
   justify-self: flex-end;
   margin-top: auto;
   margin-bottom: 1rem;
-
-  @media (max-width: 690px) {
-    display: none;
-  }
 `;
 
 const PhoneIcon = styled.div`

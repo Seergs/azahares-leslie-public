@@ -28,9 +28,7 @@ export default function Hero() {
           animate="visible"
         >
           <Title variants={titleVariants}>
-            ARTÍCULOS
-            <br /> RELIGIOSOS PARA
-            <br /> TODA OCASIÓN
+            ARTÍCULOS RELIGIOSOS PARA TODA OCASIÓN
           </Title>
           <Paragraph variants={paragraphVariants}>
             Hechos con la mejor calidad y al mejor precio

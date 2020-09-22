@@ -21,50 +21,24 @@ export const Text = styled(motion.div)`
   padding: 30px;
   color: ${colors.black};
   margin-top: 1rem;
-
-  @media (max-width: 690px) {
-    margin-top: 2rem;
-  }
 `;
 
 export const Title = styled(motion.h1)`
   font-size: ${fontSizes.title};
   line-height: 1.5;
-
-  @media (max-width: 1200px) {
-    font-size: ${fontSizes.titleMobile};
-    line-height: 2;
-  }
+  font-family: "Abril Fatface", cursive;
+  max-width: 600px;
 `;
 
 export const Paragraph = styled(motion.p)`
   margin-top: 1rem;
-  font-size: ${fontSizes.xl};
-
-  @media (max-width: 690px) {
-    display: none;
-  }
+  font-size: ${fontSizes["2xl"]};
 `;
 
 export const Image = styled(motion.img)`
   height: 100vh;
   margin-left: auto;
   transition: transform 0.3s ease-in-out, filter 0.2s ease-in-out;
-
-  @media (max-width: 1200px) {
-    position: absolute;
-    transform: translateY(104px);
-
-    right: 0;
-  }
-
-  @media (max-width: 690px) {
-    width: 100%;
-    height: auto;
-    right: auto;
-
-    filter: opacity(0.4);
-  }
 `;
 
 export const containerVariants: Variants = {
