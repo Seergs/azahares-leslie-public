@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Variants, motion } from "framer-motion";
 import theme from "../../theme/theme";
 import mixins from "../../theme/mixins";

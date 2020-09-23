@@ -5,7 +5,7 @@ import mixins from "../../theme/mixins";
 import { ReactComponent as BgPattern } from "../../assets/images/pattern.svg";
 
 const { colors, fontSizes } = theme;
-const { flex, justifyBetween, flexRowReverse } = mixins;
+const { flex, flexRowReverse } = mixins;
 
 type OddProps = {
   $isOdd?: boolean;

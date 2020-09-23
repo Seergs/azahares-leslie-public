@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 import mixins from "../../theme/mixins";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import theme from "../../theme/theme";
 const { colors, fontSizes } = theme;
 
