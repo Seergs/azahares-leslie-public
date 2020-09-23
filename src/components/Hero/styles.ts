@@ -26,7 +26,7 @@ export const Text = styled(motion.div)`
 export const Title = styled(motion.h1)`
   font-size: ${fontSizes.title};
   line-height: 1.5;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Archivo Black", sans-serif;
   max-width: 600px;
 `;
 

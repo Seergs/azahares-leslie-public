@@ -5,6 +5,8 @@ const theme = {
     beige: "#F8F7F4",
     darkBeige: "#5C574F",
     underlay: "#746C5E",
+    white: "#F7FAFC",
+    ultraBlack: "#1A202C",
   },
   fontSizes: {
     sm: "",

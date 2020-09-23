@@ -1,0 +1,63 @@
+import React from "react";
+import styled from "styled-components/macro";
+import theme from "../../theme/theme";
+import mixins from "../../theme/mixins";
+const { colors, fontSizes } = theme;
+const { flex } = mixins;
+
+const StyledFooter = styled.footer`
+  margin-top: 5rem;
+  background-color: ${colors.ultraBlack};
+  height: 170px;
+  color: ${colors.white};
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  column-gap: 1rem;
+`;
+
+const Title = styled.div`
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  text-align: right;
+  font-size: ${fontSizes.lg};
+`;
+
+const List = styled.ul`
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+`;
+
+const ListItem = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+`;
+
+const ContactInfo = styled.div`
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  p,
+  h5 {
+    font-size: ${fontSizes.lg};
+  }
+`;
+
+export default function Footer() {
+  return (
+    <StyledFooter>
+      <Title>Azahares Leslie</Title>
+      <List>
+        <ListItem>Acerca</ListItem>
+        <ListItem>Productos</ListItem>
+        <ListItem>Ir a inicio</ListItem>
+      </List>
+      <ContactInfo>
+        <h5>CONTACTO</h5>
+        <p>Tel 355-511-54-55</p>
+      </ContactInfo>
+    </StyledFooter>
+  );
+}

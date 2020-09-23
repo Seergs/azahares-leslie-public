@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     body, html {
-        font-family: 'Cardo', serif;
+        font-family: 'Judson', serif;
         height: 100%;
         width:100%;
         margin:0;
