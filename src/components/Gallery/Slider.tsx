@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import mixins from "../../theme/mixins";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const { justifyBetween, alignCenter } = mixins;
 
@@ -10,13 +11,12 @@ const StyledSlider = styled.div`
   ${alignCenter}
 `;
 
-const Image = styled.img`
+const Image = styled(motion.img)`
   height: 200px;
   width: 266px;
 
   &:nth-child(1),
   &:nth-child(5) {
-    filter: opacity(0.4);
     position: relative;
   }
 
@@ -60,7 +60,16 @@ export default function Slider() {
   return (
     <>
       <StyledSlider>
-        {index > -1 ? <Image src={images[index]} /> : <Empty />}
+        {index > -1 ? (
+          <Image
+            src={images[index]}
+            initial={{
+              opacity: 0.4,
+            }}
+          />
+        ) : (
+          <Empty />
+        )}
         {index > -1 ? (
           <Button
             onClick={() => {
@@ -73,7 +82,14 @@ export default function Slider() {
           <EmptyButton />
         )}
 
-        <Image src={images[index + 1]} />
+        <Image
+          src={images[index + 1]}
+          key={images[index + 1]}
+          animate={{
+            opacity: [0, 0.5, 1],
+          }}
+        />
+
         {index < images.length - 2 ? (
           <Button
             onClick={() => {
@@ -87,7 +103,12 @@ export default function Slider() {
         )}
 
         {index < images.length - 2 ? (
-          <Image src={images[index + 2]} />
+          <Image
+            src={images[index + 2]}
+            initial={{
+              opacity: 0.4,
+            }}
+          />
         ) : (
           <Empty />
         )}
