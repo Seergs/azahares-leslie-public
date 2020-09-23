@@ -4,6 +4,10 @@ const mixins = {
   flex: css`
     display: flex;
   `,
+  flexRowReverse: css`
+    display: flex;
+    flex-direction: row-reverse;
+  `,
   flexColumn: css`
     display: flex;
     flex-direction: column;
