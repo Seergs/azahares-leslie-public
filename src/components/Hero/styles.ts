@@ -4,7 +4,7 @@ import theme from "../../theme/theme";
 import mixins from "../../theme/mixins";
 
 const { colors, fontSizes } = theme;
-const { flex, flexColumn, justifyBetween } = mixins;
+const { flex, flexColumn } = mixins;
 
 export const Container = styled.div`
   ${flex};
