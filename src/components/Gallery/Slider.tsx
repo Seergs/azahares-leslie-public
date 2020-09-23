@@ -54,8 +54,14 @@ const images = [
   "https://res.cloudinary.com/du2j41pda/image/upload/v1600833585/azahares_leslie/proyc_4_ohvcds.png",
 ];
 
+enum DIRECTIONS {
+  RIGHT = "right",
+  LEFT = "left",
+}
+
 export default function Slider() {
   const [index, setIndex] = useState(0);
+  const [from, setFrom] = useState(DIRECTIONS.RIGHT);
 
   return (
     <>
@@ -63,8 +69,24 @@ export default function Slider() {
         {index > -1 ? (
           <Image
             src={images[index]}
-            initial={{
-              opacity: 0.4,
+            key={images[index] + "1"}
+            initial={
+              from === DIRECTIONS.LEFT
+                ? {
+                    opacity: 0.4,
+                    x: 200,
+                  }
+                : {
+                    opacity: 0.4,
+                    x: -200,
+                  }
+            }
+            animate={{
+              x: 0,
+              transition: {
+                duration: 1,
+                stiffness: 2,
+              },
             }}
           />
         ) : (
@@ -74,6 +96,7 @@ export default function Slider() {
           <Button
             onClick={() => {
               setIndex((prev) => prev - 1);
+              setFrom(DIRECTIONS.RIGHT);
             }}
           >
             <FaArrowLeft />
@@ -84,9 +107,23 @@ export default function Slider() {
 
         <Image
           src={images[index + 1]}
-          key={images[index + 1]}
+          key={images[index + 1] + "2"}
+          initial={
+            from === DIRECTIONS.RIGHT
+              ? {
+                  x: -200,
+                }
+              : {
+                  x: 200,
+                }
+          }
           animate={{
-            opacity: [0, 0.5, 1],
+            opacity: [0.5, 1],
+            x: 0,
+            transition: {
+              duration: 1,
+              stiffness: 2,
+            },
           }}
         />
 
@@ -94,6 +131,7 @@ export default function Slider() {
           <Button
             onClick={() => {
               setIndex((prev) => prev + 1);
+              setFrom(DIRECTIONS.LEFT);
             }}
           >
             <FaArrowRight />
@@ -105,8 +143,24 @@ export default function Slider() {
         {index < images.length - 2 ? (
           <Image
             src={images[index + 2]}
-            initial={{
-              opacity: 0.4,
+            key={images[index + 2] + "3"}
+            initial={
+              from === DIRECTIONS.LEFT
+                ? {
+                    opacity: 0.4,
+                    x: 200,
+                  }
+                : {
+                    opacity: 0.4,
+                    x: -200,
+                  }
+            }
+            animate={{
+              x: 0,
+              transition: {
+                duration: 1,
+                stiffness: 2,
+              },
             }}
           />
         ) : (
