@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import mixins from "../../theme/mixins";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import theme from "../../theme/theme";
 import { motion } from "framer-motion";
+import animations from "./animations";
+import data from "./data";
 
 const { justifyBetween, alignCenter } = mixins;
+const { colors } = theme;
+const { firstImage, activeImage, lastImage } = animations;
 
 const StyledSlider = styled.div`
   ${justifyBetween};
@@ -14,6 +19,7 @@ const StyledSlider = styled.div`
 const Image = styled(motion.img)`
   height: 200px;
   width: 266px;
+  border-radius: 3px;
 
   &:nth-child(1),
   &:nth-child(5) {
@@ -45,16 +51,20 @@ const Button = styled.button`
   cursor: pointer;
   width: 50px;
   height: 50px;
+  transition: transform 0.2s ease-in-out;
+
+  svg {
+    height: 15px;
+    width: 15px;
+    fill: ${colors.darkBeige};
+  }
+
+  &:hover {
+    transform: translateX(5px);
+  }
 `;
 
-const images = [
-  "https://res.cloudinary.com/du2j41pda/image/upload/w_800,h_600,c_fill/v1600831982/azahares_leslie/favour_gkueii.jpg",
-  "https://res.cloudinary.com/du2j41pda/image/upload/w_800,h_600,c_fill/v1600831982/azahares_leslie/bible_uxuywm.jpg",
-  "https://res.cloudinary.com/du2j41pda/image/upload/w_800,h_600,c_fill/v1600831982/azahares_leslie/coins_lbgwmz.jpg",
-  "https://res.cloudinary.com/du2j41pda/image/upload/v1600833585/azahares_leslie/proyc_4_ohvcds.png",
-];
-
-enum DIRECTIONS {
+export enum DIRECTIONS {
   RIGHT = "right",
   LEFT = "left",
 }
@@ -68,26 +78,12 @@ export default function Slider() {
       <StyledSlider>
         {index > -1 ? (
           <Image
-            src={images[index]}
-            key={images[index] + "1"}
-            initial={
-              from === DIRECTIONS.LEFT
-                ? {
-                    opacity: 0.4,
-                    x: 200,
-                  }
-                : {
-                    opacity: 0.4,
-                    x: -200,
-                  }
-            }
-            animate={{
-              x: 0,
-              transition: {
-                duration: 1,
-                stiffness: 2,
-              },
-            }}
+            src={data[index].url}
+            key={data[index].url + "1"}
+            initial={firstImage.initial(from)}
+            animate={firstImage.animate}
+            alt={data[index].alt}
+            title={data[index].alt}
           />
         ) : (
           <Empty />
@@ -106,28 +102,16 @@ export default function Slider() {
         )}
 
         <Image
-          src={images[index + 1]}
-          key={images[index + 1] + "2"}
-          initial={
-            from === DIRECTIONS.RIGHT
-              ? {
-                  x: -200,
-                }
-              : {
-                  x: 200,
-                }
-          }
-          animate={{
-            opacity: [0.5, 1],
-            x: 0,
-            transition: {
-              duration: 1,
-              stiffness: 2,
-            },
-          }}
+          src={data[index + 1].url}
+          key={data[index + 1].url + "2"}
+          initial={activeImage.initial(from)}
+          animate={activeImage.animate}
+          whileHover={activeImage.hover}
+          alt={data[index + 1].alt}
+          title={data[index + 1].alt}
         />
 
-        {index < images.length - 2 ? (
+        {index < data.length - 2 ? (
           <Button
             onClick={() => {
               setIndex((prev) => prev + 1);
@@ -140,28 +124,14 @@ export default function Slider() {
           <EmptyButton />
         )}
 
-        {index < images.length - 2 ? (
+        {index < data.length - 2 ? (
           <Image
-            src={images[index + 2]}
-            key={images[index + 2] + "3"}
-            initial={
-              from === DIRECTIONS.LEFT
-                ? {
-                    opacity: 0.4,
-                    x: 200,
-                  }
-                : {
-                    opacity: 0.4,
-                    x: -200,
-                  }
-            }
-            animate={{
-              x: 0,
-              transition: {
-                duration: 1,
-                stiffness: 2,
-              },
-            }}
+            src={data[index + 2].url}
+            key={data[index + 2].url + "3"}
+            initial={lastImage.initial(from)}
+            animate={lastImage.animate}
+            alt={data[index + 2].alt}
+            title={data[index + 2].alt}
           />
         ) : (
           <Empty />
