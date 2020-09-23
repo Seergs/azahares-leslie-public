@@ -8,7 +8,7 @@ const { colors, fontSizes } = theme;
 const { flex, justifyBetween, flexRowReverse } = mixins;
 
 type OddProps = {
-  isOdd?: boolean;
+  $isOdd?: boolean;
 };
 
 const Wrapper = styled.div`
@@ -25,8 +25,8 @@ const Title = styled.h1<OddProps>`
   filter: opacity(0.2);
   top: 3.5rem;
 
-  ${({ isOdd }) =>
-    isOdd &&
+  ${({ $isOdd }) =>
+    $isOdd &&
     css`
       right: 7rem;
     `}
@@ -37,8 +37,8 @@ const Subtitle = styled.h2<OddProps>`
   font-weight: bold;
   color: ${colors.black};
 
-  ${({ isOdd }) =>
-    isOdd &&
+  ${({ $isOdd }) =>
+    $isOdd &&
     css`
       text-align: right;
     `}
@@ -53,8 +53,8 @@ const Text = styled.p<OddProps>`
   text-align: left;
   line-height: 1.5;
 
-  ${({ isOdd }) =>
-    isOdd &&
+  ${({ $isOdd }) =>
+    $isOdd &&
     css`
       margin-left: 6rem;
     `}
@@ -71,8 +71,8 @@ const Image = styled.img<OddProps>`
   height: auto;
   z-index: 1;
 
-  ${({ isOdd }) =>
-    isOdd &&
+  ${({ $isOdd }) =>
+    $isOdd &&
     css`
       right: 0;
     `}
@@ -85,8 +85,8 @@ const Pattern = styled(BgPattern)<OddProps>`
   width: 300px;
   height: 300px;
 
-  ${({ isOdd }) =>
-    isOdd &&
+  ${({ $isOdd }) =>
+    $isOdd &&
     css`
       right: 50px;
       left: auto;
@@ -96,8 +96,8 @@ const Pattern = styled(BgPattern)<OddProps>`
 const Container = styled.div<OddProps>`
   ${flex};
 
-  ${({ isOdd }) =>
-    isOdd &&
+  ${({ $isOdd }) =>
+    $isOdd &&
     css`
       ${flexRowReverse}
     `}
@@ -133,13 +133,13 @@ export default function Features() {
         </Container>
       </Wrapper>
       <Wrapper>
-        <Title isOdd>MODERNO</Title>
-        <Subtitle isOdd>
+        <Title $isOdd>MODERNO</Title>
+        <Subtitle $isOdd>
           Artículos modernos
           <br /> para gente moderna
         </Subtitle>
-        <Container isOdd>
-          <Text isOdd>
+        <Container $isOdd>
+          <Text $isOdd>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
             suscipit obcaecati rerum! Animi aperiam, dicta accusantium rerum
             pariatur ipsum in temporibus reiciendis quae labore minima
@@ -153,9 +153,9 @@ export default function Features() {
             <Image
               src="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600828506/azahares_leslie/pillow_yqsauk.jpg"
               alt=""
-              isOdd
+              $isOdd
             />
-            <Pattern isOdd />
+            <Pattern $isOdd />
           </ImageWrapper>
         </Container>
       </Wrapper>
