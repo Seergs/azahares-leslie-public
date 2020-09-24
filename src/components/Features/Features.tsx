@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import styled, { css } from "styled-components/macro";
 import theme from "../../theme/theme";
 import mixins from "../../theme/mixins";
-import { ReactComponent as BgPattern } from "../../assets/images/pattern.svg";
 import { useIntersection } from "react-use";
 import { motion } from "framer-motion";
 import ImageComponent from "./Image";
+import Underlay from "./Underlay";
 
 const { colors, fontSizes } = theme;
 const { flex, flexRowReverse } = mixins;
@@ -63,47 +63,6 @@ const Text = styled.p<OddProps>`
     `}
 `;
 
-const ImageWrapper = styled.div`
-  width: 50%;
-  position: relative;
-
-  .animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const Image = styled(motion.img)<OddProps>`
-  position: absolute;
-  width: 300px;
-  height: auto;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.5s;
-
-  ${({ $isOdd }) =>
-    $isOdd &&
-    css`
-      right: 0;
-    `}
-`;
-
-const Pattern = styled(BgPattern)<OddProps>`
-  position: absolute;
-  left: 40px;
-  top: 80px;
-  width: 300px;
-  height: 300px;
-
-  ${({ $isOdd }) =>
-    $isOdd &&
-    css`
-      right: 50px;
-      left: auto;
-    `}
-`;
-
 const Container = styled.div<OddProps>`
   ${flex};
 
@@ -125,7 +84,7 @@ export default function Features() {
   return (
     <>
       <Wrapper>
-        <Title>ELEGANCIA</Title>
+        <Underlay>ELEGANCIA</Underlay>
         <Subtitle>
           Accesorios
           <br /> elegantes
@@ -148,7 +107,7 @@ export default function Features() {
         </Container>
       </Wrapper>
       <Wrapper>
-        <Title $isOdd>MODERNO</Title>
+        <Underlay isOdd>MODERNO</Underlay>
         <Subtitle $isOdd>
           Artículos modernos
           <br /> para gente moderna
@@ -166,7 +125,7 @@ export default function Features() {
           </Text>
           <ImageComponent
             url="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600828506/azahares_leslie/pillow_yqsauk.jpg"
-            alt="Cojin"
+            alt="pillow"
           />
         </Container>
       </Wrapper>
