@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled, { css } from "styled-components/macro";
 import theme from "../../theme/theme";
 import mixins from "../../theme/mixins";
 import { ReactComponent as BgPattern } from "../../assets/images/pattern.svg";
+import { useIntersection } from "react-use";
+import { motion } from "framer-motion";
+import ImageComponent from "./Image";
 
 const { colors, fontSizes } = theme;
 const { flex, flexRowReverse } = mixins;
@@ -11,7 +14,7 @@ type OddProps = {
   $isOdd?: boolean;
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   background-color: ${colors.beige};
   padding: 7rem;
   position: relative;
@@ -63,13 +66,21 @@ const Text = styled.p<OddProps>`
 const ImageWrapper = styled.div`
   width: 50%;
   position: relative;
+
+  .animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
-const Image = styled.img<OddProps>`
+const Image = styled(motion.img)<OddProps>`
   position: absolute;
   width: 300px;
   height: auto;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s;
 
   ${({ $isOdd }) =>
     $isOdd &&
@@ -104,6 +115,13 @@ const Container = styled.div<OddProps>`
 `;
 
 export default function Features() {
+  const intersectionRef = useRef(null);
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1,
+  });
+  console.log(intersection);
   return (
     <>
       <Wrapper>
@@ -123,13 +141,10 @@ export default function Features() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
             suscipit obcaecati rerum! Animi aperiam.
           </Text>
-          <ImageWrapper>
-            <Image
-              src="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600816822/azahares_leslie/candle_czys0a.jpg"
-              alt=""
-            />
-            <Pattern />
-          </ImageWrapper>
+          <ImageComponent
+            url="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600816822/azahares_leslie/candle_czys0a.jpg"
+            alt="Candle"
+          />
         </Container>
       </Wrapper>
       <Wrapper>
@@ -149,14 +164,10 @@ export default function Features() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
             suscipit obcaecati rerum! Animi aperiam.
           </Text>
-          <ImageWrapper>
-            <Image
-              src="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600828506/azahares_leslie/pillow_yqsauk.jpg"
-              alt=""
-              $isOdd
-            />
-            <Pattern $isOdd />
-          </ImageWrapper>
+          <ImageComponent
+            url="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600828506/azahares_leslie/pillow_yqsauk.jpg"
+            alt="Cojin"
+          />
         </Container>
       </Wrapper>
     </>
