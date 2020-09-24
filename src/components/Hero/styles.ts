@@ -14,6 +14,7 @@ export const Main = styled.main`
   ${flexColumn};
   position: relative;
   z-index: 1;
+  overflow: visible;
   height: 100vh;
 `;
 

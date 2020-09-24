@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 import theme from "../../theme/theme";
-import mixins from "../../theme/mixins";
 const { colors, fontSizes } = theme;
-const { flex } = mixins;
 
 const StyledFooter = styled.footer`
   margin-top: 5rem;

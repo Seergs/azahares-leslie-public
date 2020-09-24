@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef, useState } from "react";
+import styled, { css } from "styled-components";
 import { FaPhoneAlt } from "react-icons/fa";
 import theme from "../../theme/theme";
 import { motion } from "framer-motion";
@@ -10,10 +10,10 @@ const { alignCenter } = mixins;
 
 const Container = styled(motion.div)`
   ${alignCenter}
+  position: fixed;
+  bottom: 2rem;
   padding: 30px;
-  justify-self: flex-end;
-  margin-top: auto;
-  margin-bottom: 1rem;
+  z-index: 2;
 `;
 
 const PhoneIcon = styled.div`

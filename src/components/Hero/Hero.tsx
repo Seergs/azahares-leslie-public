@@ -1,7 +1,6 @@
 import React from "react";
-
-import Phone from "./Phone";
 import Navbar from "../Navbar/Navbar";
+import Phone from "./Phone";
 
 import {
   titleVariants,
@@ -34,7 +33,6 @@ export default function Hero() {
             Hechos con la mejor calidad y al mejor precio
           </Paragraph>
         </Text>
-        <Phone />
       </Main>
       <Image
         src="https://res.cloudinary.com/du2j41pda/image/upload/f_auto,q_auto/v1592611077/azahares_leslie/hero_rypcap.png"
