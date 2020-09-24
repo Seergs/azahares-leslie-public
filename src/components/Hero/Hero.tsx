@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import Phone from "./Phone";
 
 import {
   titleVariants,

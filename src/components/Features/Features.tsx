@@ -21,20 +21,6 @@ const Wrapper = styled(motion.div)`
   height: 620px;
 `;
 
-const Title = styled.h1<OddProps>`
-  font-size: ${fontSizes.undelay};
-  position: absolute;
-  color: ${colors.underlay};
-  filter: opacity(0.2);
-  top: 3.5rem;
-
-  ${({ $isOdd }) =>
-    $isOdd &&
-    css`
-      right: 7rem;
-    `}
-`;
-
 const Subtitle = styled.h2<OddProps>`
   font-size: ${fontSizes.header};
   font-weight: bold;

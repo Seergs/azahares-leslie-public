@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import { FaPhoneAlt } from "react-icons/fa";
 import theme from "../../theme/theme";
 import { motion } from "framer-motion";
