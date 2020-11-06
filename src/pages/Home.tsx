@@ -1,11 +1,18 @@
 import React from "react";
-
-import Landing from "../components/Landing/Landing";
+import Features from "../components/Features/Features";
+import Gallery from "../components/Gallery/Gallery";
+import Hero from "../components/Hero/Hero";
+import Footer from "../components/Footer/Footer";
+import Phone from "../components/Phone/Phone";
 
 export default function Home() {
   return (
-    <div>
-      <Landing />
-    </div>
+    <>
+      <Hero />
+      <Phone />
+      <Features />
+      <Gallery />
+      <Footer />
+    </>
   );
 }

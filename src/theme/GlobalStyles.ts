@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     body, html {
-        font-family: 'Lato', sans-serif;
+        font-family: 'Judson', serif;
         height: 100%;
         width:100%;
         margin:0;
@@ -34,20 +34,4 @@ export default createGlobalStyle`
         text-decoration:none;
     }
 
-    .ReactModal__Overlay {
-        background-color: transparent !important;
-        transition: all .3s ease-out;
-        opacity: 0;
-        transform: translateY(-2%);
-    }
-
-    .ReactModal__Overlay--after-open {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .ReactModal__Overlay--before-close {
-        opacity: 0;
-        transform: translateY(-2%);
-    }
 `;
