@@ -32,6 +32,9 @@ const ListItem = styled.li`
   &:not(:last-child) {
     margin-bottom: 3px;
   }
+  a {
+    color: white;
+  }
 `;
 
 const ContactInfo = styled.div`
@@ -48,9 +51,12 @@ export default function Footer() {
     <StyledFooter>
       <Title>Azahares Leslie</Title>
       <List>
-        <ListItem>Acerca</ListItem>
-        <ListItem>Productos</ListItem>
-        <ListItem>Ir a inicio</ListItem>
+        <ListItem>
+          <a href="#about">Acerca</a>
+        </ListItem>
+        <ListItem>
+          <a href="#products">Productos</a>
+        </ListItem>
       </List>
       <ContactInfo>
         <h5>CONTACTO</h5>

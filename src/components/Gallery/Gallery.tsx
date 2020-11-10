@@ -23,7 +23,7 @@ const Title = styled.h1`
 
 export default function Gallery() {
   return (
-    <Container>
+    <Container id="products">
       <Subheading>TRADICIONES QUE PERDURAN</Subheading>
       <Title>Galería de productos</Title>
       <Slider />

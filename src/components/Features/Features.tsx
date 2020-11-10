@@ -69,7 +69,7 @@ export default function Features() {
   console.log(intersection);
   return (
     <>
-      <Wrapper>
+      <Wrapper id="about">
         <Underlay>ELEGANCIA</Underlay>
         <Subtitle>
           Accesorios
@@ -77,14 +77,14 @@ export default function Features() {
         </Subtitle>
         <Container>
           <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
-            suscipit obcaecati rerum! Animi aperiam, dicta accusantium rerum
-            pariatur ipsum in temporibus reiciendis quae labore minima
-            repudiandae laborum suscipit maxime.
+            Todos nuestro productos cuentan con diseños elegantes que hacen a
+            tus ceremonias lucirse por sobre todas las demás. Cada producto está
+            hecho con la mejor calidad y los mejores materiales lo que hace que
+            tus experiencias religiosas sean inolvidables.
             <br />
             <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
-            suscipit obcaecati rerum! Animi aperiam.
+            Si deseas un diseño más personalizado, no dudes en llamarnos para
+            ajustar detalles y lograr tu diseño ideal.
           </Text>
           <ImageComponent
             url="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600816822/azahares_leslie/candle_czys0a.jpg"
@@ -100,14 +100,14 @@ export default function Features() {
         </Subtitle>
         <Container $isOdd>
           <Text $isOdd>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
-            suscipit obcaecati rerum! Animi aperiam, dicta accusantium rerum
-            pariatur ipsum in temporibus reiciendis quae labore minima
-            repudiandae laborum suscipit maxime.
+            En nuestra empresa se manejan estándares que hacen que cada producto
+            que compres tenga la modernidad de hoy en día, para que tus
+            ceremonias se vean elegantes y con ese toque moderno que a todos nos
+            gusta.
             <br />
             <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis
-            suscipit obcaecati rerum! Animi aperiam.
+            Si tienes un diseño personalizado en mente, no dudes en contactarnos
+            para crearlo a tu gusto.
           </Text>
           <ImageComponent
             url="https://res.cloudinary.com/du2j41pda/image/upload/w_630,h_630,c_fill/v1600828506/azahares_leslie/pillow_yqsauk.jpg"
